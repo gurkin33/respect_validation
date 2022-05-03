@@ -1,7 +1,7 @@
 site_name: Respect Validation (Python)
 site_description: Python version of the most awesome validation engine
-site_url: https://gurkin33.github.io/pyValidator/
-repo_url: https://github.com/gurkin33/pyValidator
+site_url: https://gurkin33.github.io/respect_validation/
+repo_url: https://github.com/gurkin33/respect_validation
 extra_css: [css/extra.css]
 markdown_extensions:
   - pymdownx.highlight:

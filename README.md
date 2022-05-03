@@ -1,6 +1,6 @@
 # respect_validation
 ![Tests (pytest, flake8, mypy)](https://github.com/gurkin33/respect_validation/actions/workflows/tests.yml/badge.svg)
-[![Code Coverage](https://img.shields.io/codecov/c/github/gurkin33/respect_validation?style=flat-square)](https://codecov.io/gh/Respect/Validation)
+[![Code Coverage](https://img.shields.io/codecov/c/github/gurkin33/respect_validation?style=flat-square)](https://codecov.io/gh/gurkin33/respect_validation)
 
 Python version of "[the most awesome validation engine for PHP](https://github.com/Respect/Validation)"
 
