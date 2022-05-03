@@ -20,6 +20,7 @@ setuptools.setup(
     version=get_version(),
     long_description=long_description,
     long_description_content_type="text/markdown",
-    packages=setuptools.find_packages('.', exclude=("doc", "examples", "bin", "tests")),
+    # packages=setuptools.find_packages('.', exclude=("doc", "examples", "bin", "tests")),
+    packages=["respect_validation"],
     py_modules=["respect_validation"],
 )
