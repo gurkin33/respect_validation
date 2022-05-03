@@ -62,7 +62,7 @@ class KeySet(AbstractWrapper):
             if key_rule.get_reference() not in temp_input.keys() and key_rule.is_mandatory():
                 return False
 
-            if temp_input.get(key_rule.get_reference(), False):
+            if key_rule.get_reference() in temp_input.keys():
                 del temp_input[key_rule.get_reference()]
 
         return len(temp_input.keys()) == 0

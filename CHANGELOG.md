@@ -1,3 +1,7 @@
+## Version 1.0.3 - 2022-05-03
+
+- Fix for KeySet
+
 ## Version 1.0.0 - 2022-05-02
 
 - Initial release
