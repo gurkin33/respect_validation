@@ -21,9 +21,9 @@ PHP and Python have many differences that why this library has some small change
 General description:
 
 - Complex rules made simple: `v.numericVal().positive().between(1, 255).validate(some_variable)`.
-- [Advanced reporting](https://gurkin33.github.io/respect_validation/feature-guide.md#getting-all-messages-as-a-dict) to show validation errors.
-- [More than 130](https://gurkin33.github.io/respect_validation/list-of-rules.md) (fully tested) validation rules.
-- [Integration with Flask](https://gurkin33.github.io/respect_validation/flask%20integration/2_simple_flask.md) example.
+- [Advanced reporting](https://gurkin33.github.io/respect_validation/feature-guide/#getting-all-messages-as-a-dict/) to show validation errors.
+- [More than 130](https://gurkin33.github.io/respect_validation/list-of-rules/) (fully tested) validation rules.
+- [Integration with Flask](https://gurkin33.github.io/respect_validation/flask%20integration/2_simple_flask/) example.
 
 ### Why is it great alternative to others?
 

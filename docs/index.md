@@ -2,8 +2,6 @@
 
 ### Python version of "[the most awesome validation engine for PHP](https://github.com/Respect/Validation)"
 
-### [Documentation](https://gurkin33.github.io/respect_validation/)
-
 ### Installation
 
 ```bash
