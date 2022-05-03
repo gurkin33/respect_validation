@@ -1,0 +1,9 @@
+pytest
+pytest-cov
+coverage
+tox
+flake8
+mypy
+mkdocs==1.2.4
+mkdocs-material
+mkdocs-material-extensions

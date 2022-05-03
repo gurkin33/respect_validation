@@ -1,0 +1,2 @@
+class ComponentException(Exception):
+    pass

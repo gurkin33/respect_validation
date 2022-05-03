@@ -1,0 +1,2 @@
+class NonOmissibleException(Exception):
+    pass

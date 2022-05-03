@@ -1,0 +1,14 @@
+venv*
+.idea
+site
+__pycache__
+.pytest_cache
+.coverage
+build
+*.egg-info
+.DS_Store
+._.
+.tox
+.mypy_cache
+examples/app.db
+examples/migrations

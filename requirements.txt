@@ -1,0 +1,4 @@
+chardet
+types-chardet
+pycountry
+phonenumbers
