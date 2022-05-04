@@ -17,6 +17,6 @@ jobs:
         pip install -r requirements.txt
         pip install -r requirements_dev.txt
     - name: Run tests and generate report
-      run: pytest --cov respect_validation
+      run: pytest --cov respect_validation --cov-report xml
     - name: Upload coverage reports to Codecov with GitHub Action
       uses: codecov/codecov-action@v3
