@@ -1,6 +1,8 @@
 ## Version 1.1.0 - 2022-05-05
 
 - Added FormValidator
+- Added documentation for FormValidator
+- Added examples for FormValidator
 
 ## Version 1.0.3 - 2022-05-03
 

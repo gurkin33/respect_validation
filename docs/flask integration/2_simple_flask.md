@@ -1,6 +1,7 @@
 # Simple Flask APP
 
-First read previous [page](./1_custom_validator.md) because here we will use new class Validator.
+First read previous [page](./1_form_validator.md) because here we will use FormValidator described on 
+the previous page.
 
 ## Prepare Flask APP
 
@@ -8,20 +9,17 @@ Let's start with example of simple Flask APP and integrated validator:
 
 ```python
 from flask import Flask, request
-from respect_validation import Validator as v
-from Validator import Validator
-
+from respect_validation import Validator as v, FormValidator as fv
 
 app = Flask(__name__)
-validator = Validator()
 
 
-@app.route("/test", methods=['POST'])
+@app.route("/user", methods=['POST'])
 def validation_test():
     r = request.json
 
     output = {"error": False, "validation": None, "data": None}
-
+    validator = fv()
     validation = validator.validate(r, {
         "username": v.stringType().alnum().noWhitespace().length(4, 64),
         "email": v.optional(v.email()),
@@ -43,13 +41,33 @@ def validation_test():
 
 if __name__ == '__main__':
     app.run(port=5959, host='0.0.0.0', debug=True)
+
 ```
 
-We imported `respect_validation.Validator` to write our validation rules and new class Validator to run validation.
+## Examples request/response
 
-## Example request/response
+### Successful validation
+```json
+{
+    "username": "gurkin33",
+    "email": "",
+    "first_name": "Alexey",
+    "second_name": "",
+    "password": "123123123",
+    "password_confirmation": "123123123"
+}
+```
+Flask will responses us with this JSON:
+```json
+{
+    "data": "User data is correct :)",
+    "error": false,
+    "validation": null
+}
+```
+---
+### Failed validation
 
-For example, we send this request:
 ```json
 {
     "username": "A",
@@ -102,8 +120,9 @@ Flask will responses us with this JSON:
 }
 ```
 
-With some skill of JavaScript this output can turn into clear error messages for a user in web interface, 
-but it is beyond of this guide :)
+With some skill of JavaScript this output can turn into clear error messages for a user in web interface.
+If you have example of validation parser please share with us, else I will add my example later. :)
 
-Hope you will find this useful. If you want another example of using flask, sqlalchemy and respect_validation, please 
-follow next page.
+Hope you will find this useful. Also, if you use 
+[Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/2.x/), you can integrate validator 
+into your [Models](https://flask-sqlalchemy.palletsprojects.com/en/2.x/models/).
