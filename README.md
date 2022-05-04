@@ -1,5 +1,5 @@
 # respect_validation
-![Tests (pytest, flake8, mypy)](https://github.com/gurkin33/respect_validation/actions/workflows/tests.yml/badge.svg)
+[![Tests (pytest, flake8, mypy)](https://github.com/gurkin33/respect_validation/actions/workflows/tests.yml/badge.svg)](https://github.com/gurkin33/respect_validation/actions/workflows/tests.yml)
 [![Code Coverage](https://img.shields.io/codecov/c/github/gurkin33/respect_validation?style=flat-square)](https://codecov.io/gh/gurkin33/respect_validation)
 
 [![PyPI license](https://img.shields.io/pypi/l/respect-validation.svg?style=flat-square)](https://pypi.python.org/pypi/respect-validation/)
