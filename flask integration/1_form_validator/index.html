@@ -10,14 +10,14 @@
       
       
       
-        <link rel="canonical" href="https://gurkin33.github.io/respect_validation/flask%20integration/3_flask_sqlalchemy/">
+        <link rel="canonical" href="https://gurkin33.github.io/respect_validation/flask%20integration/1_form_validator/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-8.2.7">
     
     
       
-        <title>Flask + SqlAlchemy - Respect Validation (Python)</title>
+        <title>Form Validator - Respect Validation (Python)</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#flask-sqlalchemy" class="md-skip">
+        <a href="#form-validator" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Flask + SqlAlchemy
+              Form Validator
             
           </span>
         </div>
@@ -343,34 +343,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../1_custom_validator/" class="md-nav__link">
-        Custom Validator
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../2_simple_flask/" class="md-nav__link">
-        Simple Flask APP
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
   
@@ -383,12 +355,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Flask + SqlAlchemy
+          Form Validator
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Flask + SqlAlchemy
+        Form Validator
       </a>
       
         
@@ -407,23 +379,50 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#create-model-with-validation" class="md-nav__link">
-    Create Model with validation
+  <a href="#formvalidator-methods" class="md-nav__link">
+    FormValidator methods
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#flask-preparation" class="md-nav__link">
-    Flask preparation
+  <a href="#formvalidator-validate-arguments" class="md-nav__link">
+    FormValidator validate arguments
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-requestresponse" class="md-nav__link">
-    Example request/response
+  <a href="#examples-of-usage" class="md-nav__link">
+    Examples of usage
   </a>
+  
+    <nav class="md-nav" aria-label="Examples of usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#successful-validation" class="md-nav__link">
+    Successful validation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unexpected-field-in-request" class="md-nav__link">
+    Unexpected field in request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missed-field-in-request-with-check" class="md-nav__link">
+    Missed field in request (with check)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -431,6 +430,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_simple_flask/" class="md-nav__link">
+        Simple Flask APP
+      </a>
     </li>
   
 
@@ -2393,23 +2406,50 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#create-model-with-validation" class="md-nav__link">
-    Create Model with validation
+  <a href="#formvalidator-methods" class="md-nav__link">
+    FormValidator methods
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#flask-preparation" class="md-nav__link">
-    Flask preparation
+  <a href="#formvalidator-validate-arguments" class="md-nav__link">
+    FormValidator validate arguments
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-requestresponse" class="md-nav__link">
-    Example request/response
+  <a href="#examples-of-usage" class="md-nav__link">
+    Examples of usage
   </a>
+  
+    <nav class="md-nav" aria-label="Examples of usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#successful-validation" class="md-nav__link">
+    Successful validation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unexpected-field-in-request" class="md-nav__link">
+    Unexpected field in request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missed-field-in-request-with-check" class="md-nav__link">
+    Missed field in request (with check)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2425,167 +2465,124 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/gurkin33/respect_validation/edit/master/docs/flask integration/3_flask_sqlalchemy.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/gurkin33/respect_validation/edit/master/docs/flask integration/1_form_validator.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
 
-<h1 id="flask-sqlalchemy">Flask + SqlAlchemy</h1>
-<p>This example is here because I want to show you how you can use validation 
-in Model section.</p>
-<h2 id="create-model-with-validation">Create Model with validation</h2>
-<p>First we will create our UserModel with validation inside:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span> <span class="nc">UserModel</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<h1 id="form-validator">Form Validator</h1>
+<p>Class <code>FormValidator</code> is a helper class to validate incoming requests.</p>
+<h2 id="formvalidator-methods">FormValidator methods</h2>
+<p>There are several methods in <code>FormValidator</code>:</p>
+<ul>
+<li><code>validate(request: Dict[str, Any], rules: Dict[str, Any], check_missed: bool = False,
+check_unknown: bool = True, templates: Dict[str, str] = {})</code> - the main action method, I will describe 
+  arguments in the section below. It returns itself (FormValidation instance)</li>
+<li><code>failed()</code> - returns <code>True</code> if a validation failed, else <code>False</code></li>
+<li><code>get_errors()</code> - returns list of all validation errors, if there are no errors, it returns empty list (<code>[]</code>) </li>
+<li><code>get_messages()</code> - returns dictionary with validation errors related to keys in provided rules, if rule doesn't have 
+errors, then value of key will be <code>None</code>.</li>
+</ul>
+<h2 id="formvalidator-validate-arguments">FormValidator validate arguments</h2>
+<p>Method validate has several arguments:</p>
+<ul>
+<li><code>request: Dict[str, Any]</code> - data received from form. Must be a dictionary.</li>
+<li><code>rules: Dict[str, Any]</code> - it is a dictionary where keys must much with keys of <em>request</em>, values of this 
+  dictionary are validation rules.</li>
+<li><code>check_missed: bool = False</code> - check if <em>request</em> doesn't have one or more keys which are available in 
+  <em>rules</em>. If <code>False</code> all missed keys have <code>None</code> as a value, else keys treated as failed and have this 
+  error message - Item <em>key_name</em> must be present.</li>
+<li><code>check_unknown: bool = True</code> - check if some addition keys appeared in <em>request</em> which are not present 
+  in <em>rules</em>. If <code>True</code> addition key appears in messages - <code>_unknown_</code>.</li>
+<li><code>templates: Dict[str, str] = {}</code> - dictionary of templates which must be applied to rule exceptions, 
+<a href="../../feature-guide/#custom-messages">here are more details</a>.</li>
+</ul>
+<h2 id="examples-of-usage">Examples of usage</h2>
+<h3 id="successful-validation">Successful validation</h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">respect_validation</span> <span class="kn">import</span> <span class="n">FormValidator</span> <span class="k">as</span> <span class="n">fv</span><span class="p">,</span> <span class="n">Validator</span> <span class="k">as</span> <span class="n">v</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">&#39;users&#39;</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">username</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">password</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="n">email</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">first_name</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="n">second_name</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="nd">@classmethod</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="k">def</span> <span class="nf">find_by_id</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># rules are the same for all examples below</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">rules</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">stringType</span><span class="p">()</span><span class="o">.</span><span class="n">alnum</span><span class="p">()</span><span class="o">.</span><span class="n">noWhitespace</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">64</span><span class="p">),</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">optional</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">email</span><span class="p">()),</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">stringType</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">}</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">user_data</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;gurkin33&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;gurkin33@mail.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;123123123&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">}</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="nd">@classmethod</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="k">def</span> <span class="nf">find_by_name</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    <span class="k">def</span> <span class="nf">save_to_db</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>        <span class="k">return</span> <span class="p">{</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>            <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>            <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">,</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>            <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">email</span><span class="p">,</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>            <span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">first_name</span><span class="p">,</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>            <span class="s1">&#39;second_name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">second_name</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>        <span class="p">}</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>
-<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>    <span class="nd">@classmethod</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>        <span class="n">validator</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">()</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>        <span class="k">return</span> <span class="n">validator</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="p">{</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>            <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">stringType</span><span class="p">()</span><span class="o">.</span><span class="n">alnum</span><span class="p">()</span><span class="o">.</span><span class="n">noWhitespace</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">64</span><span class="p">),</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>            <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">optional</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">email</span><span class="p">()),</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>            <span class="s2">&quot;first_name&quot;</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">optional</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">stringType</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">64</span><span class="p">))</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s1">&#39;First name&#39;</span><span class="p">),</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>            <span class="s2">&quot;second_name&quot;</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">optional</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">stringType</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">64</span><span class="p">))</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s1">&#39;Second name&#39;</span><span class="p">),</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>            <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">stringType</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">64</span><span class="p">),</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>            <span class="s2">&quot;password_confirmation&quot;</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">stringType</span><span class="p">()</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span><span class="o">.</span><span class="n">set_template</span><span class="p">(</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>                <span class="s1">&#39;Password confirmation&#39;</span><span class="p">),</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>        <span class="p">},</span> <span class="n">templates</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;equals&#39;</span><span class="p">:</span> <span class="s2">&quot;Password confirmation does match with Password&quot;</span><span class="p">},</span> <span class="n">check_unknown</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">form_validation</span> <span class="o">=</span> <span class="n">fv</span><span class="p">()</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="n">form_validation</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">request</span><span class="o">=</span><span class="n">user_data</span><span class="p">,</span> <span class="n">rules</span><span class="o">=</span><span class="n">rules</span><span class="p">)</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="nb">print</span><span class="p">(</span><span class="n">form_validation</span><span class="o">.</span><span class="n">failed</span><span class="p">())</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="nb">print</span><span class="p">(</span><span class="n">form_validation</span><span class="o">.</span><span class="n">get_messages</span><span class="p">())</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="nb">print</span><span class="p">(</span><span class="n">form_validation</span><span class="o">.</span><span class="n">get_errors</span><span class="p">())</span>
 </code></pre></div>
-<p>With validation inside of Model you can easily validate incoming 
-request to create or update your object. In example above I 
-described validation for object creation, but you can 
-play with it and add more validation if required (for example, for 
-object update case).</p>
-<h2 id="flask-preparation">Flask preparation</h2>
-<p>Finally, we will review our new simple flask app:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span> <span class="nn">flask_migrate</span> <span class="kn">import</span> <span class="n">Migrate</span>
+Output
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># form_validation.failed()
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>False
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kn">from</span> <span class="nn">db</span> <span class="kn">import</span> <span class="n">db</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kn">from</span> <span class="nn">user_model</span> <span class="kn">import</span> <span class="n">UserModel</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a># form_validation.get_messages()
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>{&#39;_unknown_&#39;: None, &#39;username&#39;: None, &#39;email&#39;: None, &#39;password&#39;: None}
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">migrate</span> <span class="o">=</span> <span class="n">Migrate</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">db</span><span class="p">)</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;SQLALCHEMY_DATABASE_URI&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sqlite:///app.db&#39;</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;SQLALCHEMY_TRACK_MODIFICATIONS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/user&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="k">def</span> <span class="nf">validation_test</span><span class="p">():</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="n">r</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;validation&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    <span class="c1">#  check if username already in DB</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>    <span class="k">if</span> <span class="n">UserModel</span><span class="o">.</span><span class="n">find_by_name</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)):</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>        <span class="n">output</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>        <span class="k">return</span> <span class="n">output</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
-<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>    <span class="n">validation</span> <span class="o">=</span> <span class="n">UserModel</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
-<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>
-<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>    <span class="k">if</span> <span class="n">validation</span><span class="o">.</span><span class="n">failed</span><span class="p">():</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>        <span class="n">output</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
-<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>        <span class="n">output</span><span class="p">[</span><span class="s2">&quot;validation&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">validation</span><span class="o">.</span><span class="n">get_messages</span><span class="p">()</span>
-<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>        <span class="k">return</span> <span class="n">output</span>
-<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>
-<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>    <span class="k">del</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;password_confirmation&#39;</span><span class="p">]</span>
-<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>
-<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>    <span class="n">new_user</span> <span class="o">=</span> <span class="n">UserModel</span><span class="p">(</span><span class="o">**</span><span class="n">r</span><span class="p">)</span>
-<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>    <span class="n">new_user</span><span class="o">.</span><span class="n">save_to_db</span><span class="p">()</span>
-<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>    <span class="n">output</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">new_user</span><span class="o">.</span><span class="n">id</span><span class="p">}</span>
-<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>
-<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>    <span class="k">return</span> <span class="n">output</span>
-<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>
-<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>
-<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>    <span class="n">db</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
-<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">5959</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a># form_validation.get_errors()
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>[]
 </code></pre></div></p>
-<p>You can see the first check is if username is in DataBase or not. 
-Of course, you can add your own custom rule to respect_validation to 
-make this check in background, but it is out of scope for this guide.</p>
-<h2 id="example-requestresponse">Example request/response</h2>
-<p>Here is input request:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Alexey&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&quot;first_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">&quot;second_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Mochalin&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Mochalin&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123123&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nt">&quot;password_confirmation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123132&quot;</span><span class="w"></span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}</span><span class="w"></span>
+<hr />
+<h3 id="unexpected-field-in-request">Unexpected field in request</h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">user_data</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;gurkin33&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;gurkin33@mail.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;123123123&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="s2">&quot;personal_id&quot;</span><span class="p">:</span> <span class="s2">&quot;123123123&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">form_validation</span> <span class="o">=</span> <span class="n">fv</span><span class="p">()</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">form_validation</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">request</span><span class="o">=</span><span class="n">user_data</span><span class="p">,</span> <span class="n">rules</span><span class="o">=</span><span class="n">rules</span><span class="p">)</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">form_validation</span><span class="o">.</span><span class="n">failed</span><span class="p">())</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">form_validation</span><span class="o">.</span><span class="n">get_messages</span><span class="p">())</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">form_validation</span><span class="o">.</span><span class="n">get_errors</span><span class="p">())</span>
+</code></pre></div>
+Output
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># form_validation.failed()
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>True
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a># form_validation.get_messages()
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>{&#39;_unknown_&#39;: [&#39;Unknown field personal_id&#39;], &#39;username&#39;: None, &#39;email&#39;: None, &#39;password&#39;: None}
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a># form_validation.get_errors()
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>[{&#39;_unknown_&#39;: [&#39;Unknown field personal_id&#39;]}]
 </code></pre></div></p>
-<p>And response of flask:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nt">&quot;validation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="nt">&quot;_unknown_&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">            </span><span class="nt">&quot;allOf&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">                </span><span class="s2">&quot;All of the required rules must pass for Email&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">                </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">                    </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">                        </span><span class="s2">&quot;Email must be valid email&quot;</span><span class="w"></span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">                    </span><span class="p">]</span><span class="w"></span>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">                </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">            </span><span class="p">]</span><span class="w"></span>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="p">},</span><span class="w"></span>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">        </span><span class="nt">&quot;first_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">            </span><span class="nt">&quot;allOf&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">                </span><span class="s2">&quot;All of the required rules must pass for First name&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">                </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">                    </span><span class="nt">&quot;length&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">                        </span><span class="s2">&quot;First name must have a length between 3 and 64&quot;</span><span class="w"></span>
-<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">                    </span><span class="p">]</span><span class="w"></span>
-<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">                </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">            </span><span class="p">]</span><span class="w"></span>
-<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">        </span><span class="p">},</span><span class="w"></span>
-<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">        </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">            </span><span class="nt">&quot;length&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">                </span><span class="s2">&quot;Password must have a length between 8 and 64&quot;</span><span class="w"></span>
-<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">            </span><span class="p">]</span><span class="w"></span>
-<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="w">        </span><span class="p">},</span><span class="w"></span>
-<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="w">        </span><span class="nt">&quot;password_confirmation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="w">            </span><span class="nt">&quot;equals&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="w">                </span><span class="s2">&quot;Password confirmation does match with Password&quot;</span><span class="w"></span>
-<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="w">            </span><span class="p">]</span><span class="w"></span>
-<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="w">        </span><span class="p">},</span><span class="w"></span>
-<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="w">        </span><span class="nt">&quot;second_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="w">        </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w"></span>
-<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a><span class="p">}</span><span class="w"></span>
+<hr />
+<h3 id="missed-field-in-request-with-check">Missed field in request (with check)</h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">user_data</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;gurkin33&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;gurkin33@mail.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">form_validation</span> <span class="o">=</span> <span class="n">fv</span><span class="p">()</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">form_validation</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">request</span><span class="o">=</span><span class="n">user_data</span><span class="p">,</span> <span class="n">rules</span><span class="o">=</span><span class="n">rules</span><span class="p">,</span> <span class="n">check_missed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">form_validation</span><span class="o">.</span><span class="n">failed</span><span class="p">())</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">form_validation</span><span class="o">.</span><span class="n">get_messages</span><span class="p">())</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">form_validation</span><span class="o">.</span><span class="n">get_errors</span><span class="p">())</span>
+</code></pre></div>
+Output
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a># form_validation.failed()
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>True
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a># form_validation.get_messages()
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>{&#39;_unknown_&#39;: None, &#39;username&#39;: None, &#39;email&#39;: None, &#39;password&#39;: [&#39;Item password must be present&#39;]}
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a># form_validation.get_errors()
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>[{&#39;password&#39;: [&#39;Item password must be present&#39;]}]
 </code></pre></div></p>
-<p>Hope it will be useful for you. You can find this code
-in example directory of main repository.</p>
+<p>Now we can go to integration with <a href="../2_simple_flask/">simple flask app</a>.</p>
 
               
             </article>
@@ -2599,7 +2596,7 @@ in example directory of main repository.</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../2_simple_flask/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Simple Flask APP" rel="prev">
+        <a href="../../list-of-rules/" class="md-footer__link md-footer__link--prev" aria-label="Previous: List of rules" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -2608,20 +2605,20 @@ in example directory of main repository.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Simple Flask APP
+              List of rules
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../rules/AllOf/" class="md-footer__link md-footer__link--next" aria-label="Next: AllOf" rel="next">
+        <a href="../2_simple_flask/" class="md-footer__link md-footer__link--next" aria-label="Next: Simple Flask APP" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              AllOf
+              Simple Flask APP
             </div>
           </div>
           <div class="md-footer__button md-icon">
