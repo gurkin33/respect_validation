@@ -24,3 +24,9 @@ setuptools.setup(
     # packages=["respect_validation"],
     py_modules=["respect_validation"],
 )
+
+# Make release commands:
+# python setup.py sdist bdist_wheel
+# twine check dist/*
+# (optional) twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+# twine upload dist/*
