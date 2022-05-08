@@ -1,7 +1,6 @@
 from respect_validation.Exceptions.ValidationException import ValidationException
 from respect_validation.Rules.AbstractComposite import AbstractComposite
 from respect_validation.Rules.AbstractRule import AbstractRule
-from respect_validation.Rules.AllOf import AllOf
 
 
 class Not(AbstractRule):
@@ -26,19 +25,18 @@ class Not(AbstractRule):
         if self.validate(input_val):
             return
         rule = self.rule
-        if isinstance(rule, AllOf):
+        if isinstance(self.rule, AbstractComposite):
             rule = self._absorb_all_of(rule, input_val)
 
         exception = rule.report_error(input_val)
         exception.update_mode(ValidationException.MODE_NEGATIVE)
-
         raise exception
 
     def _absorb_all_of(self, rule, input_val):
         rules = rule.get_rules()
         while rules:
             rule = rules.pop(0)
-            if not isinstance(rule, AllOf):
+            if not isinstance(rule, AbstractComposite):
                 continue
 
             if not rule.validate(input_val):
