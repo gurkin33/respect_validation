@@ -168,6 +168,12 @@
                       <div class="tab-pane fade" id="nav-backend" role="tabpanel" aria-labelledby="nav-backend-tab">
                         <p>Backend code you can find <a href="https://github.com/gurkin33/validation_anywhere">here</a>.</p>
                         <h3>List of applied rules</h3>
+                        <div class="alert alert-warning" role="alert">
+                          All validation chains contain only default rules.  For some sensitive data like <b>password</b>
+                          I recommend to <u>create</u> several <u>custom rules</u>, for example, to check different register,
+                          special characters and other difficulty property and <u>don't try to make all this checks
+                          with default rules</u>. Below is just example, I hope it will be fixed later.
+                        </div>
                         <ul>
                           <li><code>username</code> - <code>v.stringType().alnum().noWhitespace().length(4, 32).Not(
                 v.oneOf(v.equals('admin'), v.equals('root')))</code></li>
