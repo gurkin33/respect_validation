@@ -16,6 +16,8 @@ Python version of "[the most awesome validation engine for PHP](https://github.c
 pip install respect-validation
 ```
 
+### --> [DEMO](https://gurkin33.github.io/respect_validation/demo.html)
+
 <p align="center">
   <img src="docs/logo_schema_slim.png" />
 </p>
@@ -28,6 +30,8 @@ General description:
 - [Advanced reporting](https://gurkin33.github.io/respect_validation/feature-guide/#getting-all-messages-as-a-dict/) to show validation errors.
 - [More than 130](https://gurkin33.github.io/respect_validation/list-of-rules/) (fully tested) validation rules.
 - [Integration with Flask](https://gurkin33.github.io/respect_validation/flask%20integration/2_simple_flask/) example.
+- Please see [demo of integration with flask](https://gurkin33.github.io/respect_validation/demo.html).
+
 
 ### Why is it great alternative to others?
 

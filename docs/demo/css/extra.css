@@ -1,0 +1,7 @@
+.invalid-feedback {
+  position: relative;
+}
+
+.invalid-feedback p.small{
+  margin: 0px;
+}

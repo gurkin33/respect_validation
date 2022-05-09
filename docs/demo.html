@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Alexey Mochalin">
+    <meta name="description" content="Respect Validation DEMO">
+
+    <link rel="canonical" href="https://gurkin33.github.io/respect_validation/">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/manifest">
+    <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-8.2.7">
+
+    <title>Respect Validation DEMO</title>
+
+    <link rel="stylesheet" href="demo/css/main.min.css">
+
+    <link rel="stylesheet" href="demo/css/palette.min.css">
+
+    <meta name="theme-color" content="#8bc34b">
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+    <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+
+    <link rel="stylesheet" href="css/extra.css">
+    <!-- bootstrap 5 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="demo/css/mdb.min.css">
+
+    <link rel="stylesheet" href="demo/css/extra.css">
+
+    <link href="https://codeseven.github.io/toastr/build/toastr.min.css" rel="stylesheet" type="text/css">
+
+    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+
+  </head>
+
+
+  <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-green" data-md-color-accent="">
+
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+
+    <div data-md-component="announce">
+
+    </div>
+
+
+    <header class="md-header" data-md-component="header" data-md-state="shadow">
+      <nav class="md-header__inner md-grid" aria-label="Header">
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">
+                Respect Validation DEMO
+              </span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="md-container" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          <!-- main sidebar start -->
+          <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="">
+            <div class="md-sidebar__scrollwrap" style="">
+              <div class="md-sidebar__inner">
+                <!-- main sidebar content -->
+              </div>
+            </div>
+          </div>
+          <!-- main sidebar start -->
+          <!-- right sidebar start -->
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 48px;">
+            <div class="md-sidebar__scrollwrap" style="height: 642px;">
+              <div class="md-sidebar__inner">
+              <!-- right sidebar content -->
+              </div>
+            </div>
+          </div>
+          <!-- right sidebar end -->
+
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+            <!-- content start -->
+
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-xl-12 col-md-12">
+                  <div class="bg-white  rounded-5 shadow-5-strong p-5 pt-2">
+
+                    <nav class="mb-3">
+                      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="nav-frontend-tab" data-bs-toggle="tab" data-bs-target="#nav-frontend" type="button" role="tab" aria-controls="nav-frontend" aria-selected="true">Frontend</button>
+                        <button class="nav-link" id="nav-backend-tab" data-bs-toggle="tab" data-bs-target="#nav-backend" type="button" role="tab" aria-controls="nav-backend" aria-selected="false">Backend</button>
+                      </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                      <div class="tab-pane fade show active" id="nav-frontend" role="tabpanel" aria-labelledby="nav-frontend-tab">
+
+                    <div class="row">
+                      <!-- Username input -->
+                      <div class="col-md-6 col-sm-12 mb-3">
+                        <label>Username</label>
+                        <input type="text" id="username" class="form-control" />
+                        <div class="invalid-feedback">
+                          <p class="small">I will be deleted. :)</p>
+                        </div>
+                      </div>
+
+                      <!-- Email input -->
+                      <div class="col-md-6 col-sm-12 mb-3">
+                        <label>Email address</label>
+                        <input type="email" id="email" class="form-control" />
+                        <div class="invalid-feedback"></div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <!-- First name input -->
+                      <div class="col-md-6 col-sm-12 mb-3">
+                        <label>First name</label>
+                        <input type="text" id="first_name" class="form-control" />
+                        <div class="invalid-feedback"></div>
+                      </div>
+
+                      <!-- Second name -->
+                      <div class="col-md-6 col-sm-12 mb-3">
+                        <label>Second name</label>
+                        <input type="text" id="second_name" class="form-control" />
+                        <div class="invalid-feedback"></div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <!-- Personal ID -->
+                      <div class="col-md-6 col-sm-12 mb-3">
+                        <label>Personal ID</label>
+                        <input type="text" id="personal_id" class="form-control" />
+                        <div class="invalid-feedback"></div>
+                      </div>
+                    </div>
+
+                    <div class="row mb-4">
+                      <!-- Password -->
+                      <div class="col-sm-12 mb-3">
+                        <label>Password</label>
+                        <input type="text" id="password" class="form-control" />
+                        <div class="invalid-feedback"></div>
+                      </div>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button id="submit-btn" class="btn btn-primary btn-block">Check</button>
+
+                      </div>
+
+                      <div class="tab-pane fade" id="nav-backend" role="tabpanel" aria-labelledby="nav-backend-tab">
+                        <p>Backend code you can find <a href="https://github.com/gurkin33/validation_anywhere">here</a>.</p>
+                        <h3>List of applied rules</h3>
+                        <ul>
+                          <li><code>username</code> - <code>v.stringType().alnum().noWhitespace().length(4, 32).Not(
+                v.oneOf(v.equals('admin'), v.equals('root')))</code></li>
+                          <li><code>email</code> - <code>v.Optional(v.email())</code></li>
+                          <li><code>first_name</code> - <code>v.Optional(v.length(3, 32).alpha(' ')).set_name('First name')</code></li>
+                          <li><code>second_name</code> - <code>v.Optional(v.length(3, 32).alpha(' ')).set_name('Second name')</code></li>
+                          <li><code>personal_id</code> - <code>v.IntVal().positive().Min(1).set_name('Personal ID')</code></li>
+                          <li><code>password</code> - <code>v.length(8, 64).Not(
+                v.anyOf(v.lowercase(), v.uppercase(), v.IntVal(), v.alpha(),
+                        v.phone(), v.email())).alnum(' ', '!\'"#$%&''()*+,‐./:;<=>?@')</code></li>
+                        </ul>
+                      </div>
+
+                    </div><!--.tab-content-->
+                    <div class="text-end mt-5">
+                      <a href="https://gurkin33.github.io/respect_validation/">Back to docs</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <!-- content end -->
+            </article>
+          </div>
+
+        </div>
+      </main>
+
+      <footer class="md-footer">
+        <nav class="md-footer__inner md-grid" aria-label="Footer">
+        </nav>
+
+        <div class="md-footer-meta md-typeset">
+          <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+              Made with
+              <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+                Material for MkDocs
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div><!--.md-container-->
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+
+    <script src="https://codeseven.github.io/toastr/build/toastr.min.js"></script>
+    <script src="demo/js/validation_parser.js"></script>
+
+    <script type="text/javascript">
+
+      toastr.options = {
+        "debug": false,
+        "positionClass": "toast-bottom-right",
+        "onclick": null,
+        "fadeIn": 300,
+        "fadeOut": 1000,
+        "timeOut": 5000,
+        "extendedTimeOut": 1000
+        }
+
+
+      $("#submit-btn").click(checkData);
+
+      function loading(){
+
+      }
+
+      function formFiller(data = {}){
+        ids = [
+          'username',
+          'email',
+          'first_name',
+          'second_name',
+          'personal_id', 'password']
+
+        for (const [key, value] of Object.entries(data)) {
+          if (!ids.includes(key)){
+            console.log('Not in ID list :(', key)
+            continue
+          }
+
+          if (!value){
+            $(`#${key}`).addClass('is-valid')
+          } else {
+            $(`#${key}`).addClass('is-invalid')
+            console.log($(`#${key}`).closest(".mb-3").children(".invalid-feedback"))
+            $(`#${key}`).closest(".mb-3").children(".invalid-feedback").empty()
+            for (let i=0; i < value.length; i++){
+              toastr.error(value[i])
+              $(`#${key}`).closest(".mb-3").children(".invalid-feedback").append(`<p class="small">${value[i]}</p>`)
+            }
+            // $(`#${key}`).closest(".invalid-feedback").append('<p class="small">Please choose a username2.</p>')
+          }
+
+        }
+      }
+
+      function checkData(){
+        let data = {
+          username: $("#username").val(),
+          email: $("#email").val(),
+          first_name: $("#first_name").val(),
+          second_name: $("#second_name").val(),
+          personal_id: $("#personal_id").val(),
+          password: $("#password").val()
+        };
+
+        $.ajax({
+            url : "https://validation.pythonanywhere.com/",
+            type: "POST",
+            data : JSON.stringify(data),
+            contentType: "application/json; charset=utf-8",
+            traditional: true,
+            success: function(data, textStatus, jqXHR)
+            {
+                console.log(data, textStatus, jqXHR)
+                if (data.validation){
+                  toastr.warning('Form has errors')
+                  output = validation_parser.run(data.validation)
+                  formFiller(output)
+                  console.log(output)
+                } else {
+                  toastr.success("Form don't have errors")
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+               console.log(jqXHR, textStatus, errorThrown)
+               toastr.error('Server error :(');
+               toastr.warning('Please tell this to author');
+            }
+        });
+      }
+    </script>
+
+</body>
+</html>

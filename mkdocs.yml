@@ -10,6 +10,7 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
 theme:
+  favicon: favicon/favicon-32x32.png
   name: material
   palette:
     primary: light green
