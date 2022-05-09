@@ -257,9 +257,9 @@
           }
 
           if (!value){
-            $(`#${key}`).addClass('is-valid')
+            $(`#${key}`).removeClass('is-invalid').addClass('is-valid')
           } else {
-            $(`#${key}`).addClass('is-invalid')
+            $(`#${key}`).removeClass('is-valid').addClass('is-invalid')
             console.log($(`#${key}`).closest(".mb-3").children(".invalid-feedback"))
             $(`#${key}`).closest(".mb-3").children(".invalid-feedback").empty()
             for (let i=0; i < value.length; i++){
