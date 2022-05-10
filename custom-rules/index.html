@@ -2417,12 +2417,12 @@
 
 
 <h1 id="custom-rules">Custom rules</h1>
-<p>You can also create and use your own rules. To do this, you will need to create
-a rule and an exception to go with the rule.</p>
+<p>You can also create and use your own rules and exceptions.</p>
 <p>To create a rule, you need to create a class that inherits the AbstractRule class
-and add package with rule module to <code>Factory</code>. When the rule is called the logic inside the
-validate method will be executed. Here's how the class should look:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">respect_validation.Rules.AbstractRule</span> <span class="kn">import</span> <span class="n">AbstractRule</span>
+and add package (with the rule module) to <code>Factory</code>. When the rule is called the logic inside the
+validate method will be executed. I will be more clear in example.</p>
+<p>Start with creation of a rule. Below you can see a class of a new custom rule:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">respect_validation.Rules.AbstractRule</span> <span class="kn">import</span> <span class="n">AbstractRule</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">class</span> <span class="nc">CustomRule</span><span class="p">(</span><span class="n">AbstractRule</span><span class="p">):</span>
@@ -2431,10 +2431,13 @@ validate method will be executed. Here's how the class should look:</p>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="k">return</span> <span class="n">input_val</span> <span class="o">==</span> <span class="s1">&#39;Hello custom rule!&#39;</span>
 </code></pre></div>
-IMPORTANT. <ins><b>Names of module and class of rule must be the same</b></ins> 
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p><ins><b>Names of module (file name) and class of rule must be the same</b></ins> 
 (for example, the name of module CustomRule.py, then the name of class is CustomRule). 
 Name are case-sensitive and <ins><b>must start with upper letter</b></ins> 
 (<b>C</b>ustomRule - ✅ , <b>c</b>ustomRule - ❌ ).</p>
+</div>
 <p>Each rule must have an Exception to go with it. Exceptions should be named
 with the name of the rule followed by the word Exception. The process of creating
 an Exception is similar to creating a rule but there are no methods in the
@@ -2454,6 +2457,11 @@ array with the information below:</p>
 <a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        <span class="p">}</span>
 <a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="p">}</span>
 </code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>There are two modes in exception messages <strong>default</strong> and <strong>negative</strong>. Default mode is active while 
+usual use. Negative mode is active when a rule inside <a href="../rules/Not/"><code>Not</code></a> rule.</p>
+</div>
 <p>So in the end, the folder structure for your Rules and Exceptions should look
 something like the structure below. If you understand how it works, then you can use your own structure 😎.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Custom
@@ -2488,7 +2496,7 @@ default <code>Factory</code>.</p>
 </code></pre></div>
 <h2 id="add-arguments-attributesparameters-to-custom-rule">Add arguments (attributes/parameters) to custom rule</h2>
 <p>To add arguments to custom rule please use next example:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">respect_validation.Rules.AbstractRule</span> <span class="kn">import</span> <span class="n">AbstractRule</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">respect_validation.Rules.AbstractRule</span> <span class="kn">import</span> <span class="n">AbstractRule</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">class</span> <span class="nc">CustomRule</span><span class="p">(</span><span class="n">AbstractRule</span><span class="p">):</span>
@@ -2505,7 +2513,10 @@ default <code>Factory</code>.</p>
 <a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>        <span class="k">else</span><span class="p">:</span>
 <a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>            <span class="kc">False</span>
 </code></pre></div>
-<b>IMPORTANT</b>. Don't forget to add <code>super().__init__()</code>, else you may have problems.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Don't forget to add <code>super().__init__()</code>, else you may have problems.</p>
+</div>
 <p>Now you can write rule in this way:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">v</span><span class="o">.</span><span class="n">customRule</span><span class="p">(</span><span class="n">new_argument</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="s1">&#39;Hello custom rule!&#39;</span><span class="p">)</span>
 </code></pre></div></p>

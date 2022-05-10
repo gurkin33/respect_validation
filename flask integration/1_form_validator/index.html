@@ -2499,15 +2499,15 @@ check_unknown: bool = True, templates: Dict[str, str] = {})</code> - the main ac
 <li><code>get_messages()</code> - returns dictionary with validation errors related to keys in provided rules, if rule doesn't have 
 errors, then value of key will be <code>None</code>.</li>
 </ul>
-<h2 id="formvalidator-validate-arguments">FormValidator validate arguments</h2>
+<h2 id="formvalidator-validate-arguments">FormValidator <code>validate</code> arguments</h2>
 <p>Method validate has several arguments:</p>
 <ul>
 <li><code>request: Dict[str, Any]</code> - data received from form. Must be a dictionary.</li>
-<li><code>rules: Dict[str, Any]</code> - it is a dictionary where keys must much with keys of <em>request</em>, values of this 
+<li><code>rules: Dict[str, Any]</code> - it is a dictionary where keys must match with keys of <em>request</em>, values of this 
   dictionary are validation rules.</li>
 <li><code>check_missed: bool = False</code> - check if <em>request</em> doesn't have one or more keys which are available in 
   <em>rules</em>. If <code>False</code> all missed keys have <code>None</code> as a value, else keys treated as failed and have this 
-  error message - Item <em>key_name</em> must be present.</li>
+  error message - "Item <em>key_name</em> must be present".</li>
 <li><code>check_unknown: bool = True</code> - check if some addition keys appeared in <em>request</em> which are not present 
   in <em>rules</em>. If <code>True</code> addition key appears in messages - <code>_unknown_</code>.</li>
 <li><code>templates: Dict[str, str] = {}</code> - dictionary of templates which must be applied to rule exceptions, 

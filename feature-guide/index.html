@@ -2609,7 +2609,7 @@ containing numbers and letters, no whitespace and length between 1 and 15.</p>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">user</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Alexandre&#39;</span>
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">user</span><span class="o">.</span><span class="n">birthdate</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="s1">&#39;1987-07-01&#39;</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
 </code></pre></div>
-<p>Is possible to validate its attributes in a single chain:</p>
+<p>It is possible to validate its attributes in a single chain:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">#  &quot;name&quot; in between 1 to 32 symbols</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1">#  &quot;birthdate&quot; older than 18 years old</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">user_validator</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">attribute</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">stringType</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">))</span><span class="o">.</span> \
@@ -2620,7 +2620,7 @@ containing numbers and letters, no whitespace and length between 1 and 15.</p>
 <p>Validating dictionary is also possible using <code>v.key()</code></p>
 <p>Note that we used <code>v.stringType()</code> and <code>v.date()</code> in the beginning of the validator.
 Although is not mandatory, it is a good practice to use the type of the
-validated object as the first node in the chain.</p>
+validated object as the first check in the chain.</p>
 <h2 id="validating-dictionaries">Validating dictionaries</h2>
 <p>Validating dict into another dict is also possible using <a href="../rules/Key/">Key</a>.</p>
 <p>If we got the dict below:</p>
@@ -2648,10 +2648,10 @@ validated object as the first node in the chain.</p>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">v</span><span class="o">.</span><span class="n">optional</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">alpha</span><span class="p">())</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>  <span class="c1"># true</span>
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">v</span><span class="o">.</span><span class="n">optional</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">alpha</span><span class="p">())</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>  <span class="c1"># true</span>
 </code></pre></div>
-<p>By <em>optional</em> we consider <code>None</code> or an empty string (<code>''</code>).</p>
+<p>By <em>optional</em> we consider <code>None</code> or an empty string (<code>''</code>) as valid and don't pull input to rule inside.</p>
 <p>See more on <a href="../rules/Optional/">Optional</a>.</p>
 <h2 id="negating-rules">Negating rules</h2>
-<p>You can use the <code>v.Not()</code> (IMPORTANT to type with upper N) to negate any rule:</p>
+<p>You can use <code>v.Not()</code> (IMPORTANT to type with upper N) to negate any rule:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">v</span><span class="o">.</span><span class="n">Not</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">intVal</span><span class="p">())</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># false, input must not be integer</span>
 </code></pre></div>
 <h2 id="validator-reuse">Validator reuse</h2>
@@ -2706,7 +2706,7 @@ that. The <code>get_messages()</code> method returns an array with all the messa
 <a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="k">except</span> <span class="n">NestedValidationException</span> <span class="k">as</span> <span class="n">exception</span><span class="p">:</span>
 <a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">exception</span><span class="o">.</span><span class="n">get_messages</span><span class="p">())</span>
 </code></pre></div>
-<p>The <code>get_messages()</code> returns an array in which the keys are the name of the
+<p>The <code>get_messages()</code> returns an array in which the keys are the name (better say ID) of the
 validators, or its reference in case you are using <a href="../rules/Key/">Key</a> or
 <a href="../rules/Attribute/">Attribute</a> rule:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>{
@@ -2723,13 +2723,13 @@ method as well by passing the templates as an argument:</p>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    <span class="n">username_validator</span><span class="o">.</span><span class="n">claim</span><span class="p">(</span><span class="s1">&#39;really messed up screen#name&#39;</span><span class="p">)</span>
 <a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="k">except</span> <span class="n">NestedValidationException</span> <span class="k">as</span> <span class="n">exception</span><span class="p">:</span>
 <a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">exception</span><span class="o">.</span><span class="n">get_messages</span><span class="p">({</span>
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>            <span class="s1">&#39;alnum&#39;</span><span class="p">:</span> <span class="s1">&#39;{{name}} must contain only letters and digits&#39;</span><span class="p">,</span>
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>            <span class="s1">&#39;noWhitespace&#39;</span><span class="p">:</span> <span class="s1">&#39;{{name}} cannot contain spaces&#39;</span><span class="p">,</span>
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>            <span class="s1">&#39;length&#39;</span><span class="p">:</span> <span class="s1">&#39;{{name}} must not have more than 15 chars&#39;</span><span class="p">,</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>            <span class="s1">&#39;alnum&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{name}</span><span class="s1"> must contain only letters and digits&#39;</span><span class="p">,</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>            <span class="s1">&#39;noWhitespace&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{name}</span><span class="s1"> cannot contain spaces&#39;</span><span class="p">,</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>            <span class="s1">&#39;length&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{name}</span><span class="s1"> must not have more than 15 chars&#39;</span><span class="p">,</span>
 <a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>        <span class="p">})</span>
 <a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>    <span class="p">)</span>
 </code></pre></div>
-<p>For all messages, the <code>{{name}}</code> variable is available for templates. If you do
+<p>For all messages, the <code>{name}</code> variable is available for templates. If you do
 not define a name it uses the input to replace this placeholder.</p>
 <p>The result of the code above will be:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>{
@@ -2740,14 +2740,18 @@ not define a name it uses the input to replace this placeholder.</p>
 </code></pre></div>
 <p>Note that <code>get_message()</code> will only return a message when the specific validation
 in the chain fails.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Also, you can use <a href="../translation/">Translation</a> to change any output messages.</p>
+</div>
 <h2 id="validator-name">Validator name</h2>
-<p>On <code>v.attribute()</code> and <code>v.key()</code>, <code>{{name}}</code> is the attribute/key name. For others,
+<p>On <code>v.attribute()</code> and <code>v.key()</code>, <code>{name}</code> is the attribute/key name. For others,
 is the same as the input. You can customize a validator name using:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">v</span><span class="o">.</span><span class="n">dateTime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="s1">&#39;1980-02-02&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-04-29&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">setName</span><span class="p">(</span><span class="s1">&#39;Member Since&#39;</span><span class="p">);</span>
 </code></pre></div>
 <h2 id="validation-methods">Validation methods</h2>
-<p>We've seen <code>validate()</code> that returns true or false and <code>claim()</code> that throws a complete
-validation report. There is also a <code>check()</code> method that returns an Exception
+<p>We've seen <code>validate()</code> that returns True or False and <code>claim()</code> that raises a complete
+validation report. There is also <code>check()</code> method that returns an Exception
 only with the first error found:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kn">from</span> <span class="nn">respect_validation.Exceptions</span> <span class="kn">import</span> <span class="n">ValidationException</span>
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="k">try</span><span class="p">:</span>
