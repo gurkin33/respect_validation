@@ -50,3 +50,4 @@ class AbstractRule:
 
     def set_language(self, language: str):
         self.set_param('_language_', language)
+        return self

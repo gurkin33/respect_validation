@@ -61,15 +61,17 @@ class Factory(object):
         _id = rule_name[0].lower() + rule_name[1:]
 
         # One language in translation
-        if self._translation and not (self._default_language and params.get('_language_')) and \
+        if isinstance(self._translation, dict) and not (self._default_language and params.get('_language_')) and \
                 self._translation.get(_id):
             translation = self._translation[_id]
 
         # Several languages in translation
-        if self._translation and (self._default_language or params.get('_language_')):
+        if isinstance(self._translation, dict) and (self._default_language or params.get('_language_')):
+
             if self._default_language and self._translation.get(self._default_language) and \
                     self._translation[self._default_language].get(_id):
                 translation = self._translation[self._default_language][_id]
+
             if params.get('_language_') and self._translation.get(str(params.get('_language_'))) and \
                     self._translation[str(params.get('_language_'))].get(_id):
                 translation = self._translation[str(params.get('_language_'))][_id]
