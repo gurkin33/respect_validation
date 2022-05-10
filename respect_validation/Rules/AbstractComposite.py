@@ -39,6 +39,11 @@ class AbstractComposite(AbstractRule):
             rule.set_name(name)
         return super().set_name(name)
 
+    def set_language(self, language: str) -> Any:
+        for rule in self.get_rules():
+            rule.set_language(language)
+        return super().set_language(language)
+
     # def update_exception_template(self, exception) -> None:
     #     if self._template is None or exception.has_custome_template():
     #         return

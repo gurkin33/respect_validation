@@ -47,3 +47,7 @@ class AbstractRule:
 
     def get_params(self) -> Dict[str, Any]:
         return self._params
+
+    def set_language(self, language: str):
+        self.set_param('_language_', language)
+        return self

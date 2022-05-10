@@ -1,3 +1,4 @@
+import json
 import re
 from os import listdir
 from os.path import isfile, join
@@ -14,6 +15,35 @@ class Rules(object):
     def get_exceptions():
         mypath = str(__file__).replace('rules.py', '../respect_validation/Exceptions/')
         return [str(f).replace('Exception.py', '') for f in listdir(mypath) if isfile(join(mypath, f)) and 'Exception.py' in f]
+
+    @staticmethod
+    def get_exceptions_default_messages():
+        mypath = str(__file__).replace('rules.py', '../respect_validation/Exceptions/')
+        exceptions = [
+            str(f).replace('Exception.py', '') for f in listdir(mypath)
+            if isfile(join(mypath, f)) and 'Exception.py' in f]
+        import_path = 'respect_validation.Exceptions'
+        all_messages = {}
+        for e in exceptions:
+            if e in ['NonOmissible', 'Component', 'NestedValidation']:
+                continue
+            try:
+                fullname = f'{import_path}.{e}Exception'
+                mod = __import__(fullname)
+                components = fullname.split('.')
+                for comp in components[1:]:
+                    mod = getattr(mod, comp)
+                if e != 'Validation':
+                    mod = getattr(mod, f'{e}Exception')
+                all_messages[e[0].lower() + e[1:]]=mod._default_templates
+            except Exception as exception:
+                print(f"Something was wrong with {e}Exception")
+                print(f"Exception {exception}")
+        print(json.dumps(all_messages, indent=2))
+        current_path = str(__file__).replace('rules.py', '')
+        with open(f'{current_path}/default_messages.json', 'w') as outfile:
+            json.dump(all_messages, outfile, indent=2)
+        return True
 
     @staticmethod
     def get_test_rules():
@@ -56,3 +86,7 @@ class Rules(object):
             if line.strip() != '':
                 categories.append(line.replace('-', '').strip())
         return categories
+
+
+if __name__ == '__main__':
+    Rules.get_exceptions_default_messages()

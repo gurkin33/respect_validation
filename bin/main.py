@@ -2,12 +2,15 @@
 
 import argparse
 from rules import Rules
+from respect_validation.Factory import Factory
 
 
 parser = argparse.ArgumentParser(description='Respect Validation helper script. Version 1.0.0')
 
 parser.add_argument('-chk', "--check", action='store_true')
 parser.add_argument('-mkdoc', "--make-doc", action='store_true')
+parser.add_argument('-mf', "--messages-file", action='store_true')
+parser.add_argument("--all", action='store_true')
 
 args = parser.parse_args()
 
@@ -75,6 +78,10 @@ if args.make_doc:
     f = open(str(__file__).replace('main.py', '../docs/list-of-rules.md'), "w")
     f.write(list_of_rules)
     f.close()
+    quit()
+
+if args.messages_file:
+    Rules.get_exceptions_default_messages()
     quit()
 
 parser.print_help()

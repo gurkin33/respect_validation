@@ -1,0 +1,1170 @@
+{
+  "symbolicLink": {
+    "default": {
+      "standard": "{name} must be a symbolic link"
+    },
+    "negative": {
+      "standard": "{name} must not be a symbolic link"
+    }
+  },
+  "noneOf": {
+    "default": {
+      "standard": "None of these rules must pass for {name}"
+    },
+    "negative": {
+      "standard": "All of these rules must pass for {name}"
+    }
+  },
+  "stringType": {
+    "default": {
+      "standard": "{name} must be of type string"
+    },
+    "negative": {
+      "standard": "{name} must not be of type string"
+    }
+  },
+  "each": {
+    "default": {
+      "standard": "Each item in {name} must be valid"
+    },
+    "negative": {
+      "standard": "Each item in {name} must not validate"
+    }
+  },
+  "subset": {
+    "default": {
+      "standard": "{name} must be subset of {superset}"
+    },
+    "negative": {
+      "standard": "{name} must not be subset of {superset}"
+    }
+  },
+  "uuid": {
+    "default": {
+      "standard": "{name} must be a valid UUID",
+      "version": "{name} must be a valid UUID version {version}"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid UUID",
+      "version": "{name} must not be a valid UUID version {version}"
+    }
+  },
+  "instance": {
+    "default": {
+      "standard": "{name} must be an instance of {instance_name}"
+    },
+    "negative": {
+      "standard": "{name} must not be an instance of {instance_name}"
+    }
+  },
+  "time": {
+    "default": {
+      "standard": "{name} must be a valid time in the format {sample}"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid time in the format {sample}"
+    }
+  },
+  "boolType": {
+    "default": {
+      "standard": "{name} must be of type boolean"
+    },
+    "negative": {
+      "standard": "{name} must not be of type boolean"
+    }
+  },
+  "pesel": {
+    "default": {
+      "standard": "{name} must be a valid PESEL"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid PESEL"
+    }
+  },
+  "callableType": {
+    "default": {
+      "standard": "{name} must be callable"
+    },
+    "negative": {
+      "standard": "{name} must not be callable"
+    }
+  },
+  "lowercase": {
+    "default": {
+      "standard": "{name} must be lowercase"
+    },
+    "negative": {
+      "standard": "{name} must not be lowercase"
+    }
+  },
+  "factor": {
+    "default": {
+      "standard": "{name} must be a factor of {dividend}"
+    },
+    "negative": {
+      "standard": "{name} must not be a factor of {dividend}"
+    }
+  },
+  "isbn": {
+    "default": {
+      "standard": "{name} must be a ISBN"
+    },
+    "negative": {
+      "standard": "{name} must not be a ISBN"
+    }
+  },
+  "type": {
+    "default": {
+      "standard": "{name} must be {type_name}"
+    },
+    "negative": {
+      "standard": "{name} must not be {type_name}"
+    }
+  },
+  "baseNum": {
+    "default": {
+      "standard": "{name} must be a number in the base {base}"
+    },
+    "negative": {
+      "standard": "{name} must not be a number in the base {base}"
+    }
+  },
+  "countable": {
+    "default": {
+      "standard": "{name} must be countable"
+    },
+    "negative": {
+      "standard": "{name} must not be countable"
+    }
+  },
+  "readable": {
+    "default": {
+      "standard": "{name} must be readable"
+    },
+    "negative": {
+      "standard": "{name} must not be readable"
+    }
+  },
+  "unique": {
+    "default": {
+      "standard": "{name} must not contain duplicates"
+    },
+    "negative": {
+      "standard": "{name} must contain duplicates"
+    }
+  },
+  "directory": {
+    "default": {
+      "standard": "{name} must be a directory"
+    },
+    "negative": {
+      "standard": "{name} must not be a directory"
+    }
+  },
+  "date": {
+    "default": {
+      "standard": "{name} must be a valid date in the format {sample}"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid date in the format {sample}"
+    }
+  },
+  "roman": {
+    "default": {
+      "standard": "{name} must be a valid Roman numeral"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid Roman numeral"
+    }
+  },
+  "floatVal": {
+    "default": {
+      "standard": "{name} must be a float number"
+    },
+    "negative": {
+      "standard": "{name} must not be a float number"
+    }
+  },
+  "nip": {
+    "default": {
+      "standard": "{name} must be a valid Polish VAT identification number"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid Polish VAT identification number"
+    }
+  },
+  "include": {
+    "default": {
+      "standard": "{name} must be in {haystack}"
+    },
+    "negative": {
+      "standard": "{name} must not be in {haystack}"
+    }
+  },
+  "json": {
+    "default": {
+      "standard": "{name} must be a valid JSON string"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid JSON string"
+    }
+  },
+  "max": {
+    "default": {
+      "standard": "{name} must be less than or equal to {_compare_to}"
+    },
+    "negative": {
+      "standard": "{name} must not be less than or equal to {_compare_to}"
+    }
+  },
+  "decimal": {
+    "default": {
+      "standard": "{name} must have {decimals} decimals"
+    },
+    "negative": {
+      "standard": "{name} must not have {decimals} decimals"
+    }
+  },
+  "call": {
+    "default": {
+      "standard": "{input} must be valid when executed with {callable}"
+    },
+    "negative": {
+      "standard": "{input} must not be valid when executed with {callable}"
+    }
+  },
+  "dictType": {
+    "default": {
+      "standard": "{name} must be of type dict"
+    },
+    "negative": {
+      "standard": "{name} must not be of type dict"
+    }
+  },
+  "hexRgbColor": {
+    "default": {
+      "standard": "{name} must be a hex RGB color"
+    },
+    "negative": {
+      "standard": "{name} must not be a hex RGB color"
+    }
+  },
+  "slug": {
+    "default": {
+      "standard": "{name} must be a valid slug"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid slug"
+    }
+  },
+  "containsAny": {
+    "default": {
+      "standard": "{name} must contain at least one of the values {needles}"
+    },
+    "negative": {
+      "standard": "{name} must not contain any of the values {needles}"
+    }
+  },
+  "alnum": {
+    "default": {
+      "standard": "{name} must contain only letters (a-z) and digits (0-9)",
+      "extra": "{name} must contain only letters (a-z), digits (0-9) and {additional_chars}"
+    },
+    "negative": {
+      "standard": "{name} must contain only letters (a-z) and digits (0-9)",
+      "extra": "{name} must contain only letters (a-z), digits (0-9) and {additional_chars}"
+    }
+  },
+  "alwaysInvalid": {
+    "default": {
+      "standard": "{name} is always invalid",
+      "simple": "{name}  is not valid"
+    },
+    "negative": {
+      "standard": "{name} is always valid",
+      "simple": "{name}  is valid"
+    }
+  },
+  "languageCode": {
+    "default": {
+      "standard": "{name} must be a valid ISO 639 {code_set} language code"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid ISO 639 {code_set} language code"
+    }
+  },
+  "identical": {
+    "default": {
+      "standard": "{name} must be identical as {compare_to}"
+    },
+    "negative": {
+      "standard": "{name} must not be identical as {compare_to}"
+    }
+  },
+  "vowel": {
+    "default": {
+      "standard": "{name} must contain only vowels",
+      "extra": "{name} must contain only vowels and {additional_chars}"
+    },
+    "negative": {
+      "standard": "{name} must not contain vowels",
+      "extra": "{name} must not contain vowels or {additional_chars}"
+    }
+  },
+  "cnpj": {
+    "default": {
+      "standard": "{name} must be a valid CNPJ number"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid CNPJ number"
+    }
+  },
+  "groupedValidation": {
+    "default": {
+      "none": "All of the required rules must pass for {name}",
+      "some": "These rules must pass for {name}"
+    },
+    "negative": {
+      "none": "None of there rules must pass for {name}",
+      "some": "These rules must not pass for {name}"
+    }
+  },
+  "listType": {
+    "default": {
+      "standard": "{name} must be of type list"
+    },
+    "negative": {
+      "standard": "{name} must not be of type list"
+    }
+  },
+  "intVal": {
+    "default": {
+      "standard": "{name} must be an integer number"
+    },
+    "negative": {
+      "standard": "{name} must not be an integer number"
+    }
+  },
+  "postalCode": {
+    "default": {
+      "standard": "{name} must be a valid postal code on {country_code}"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid postal code on {country_code}"
+    }
+  },
+  "primeNumber": {
+    "default": {
+      "standard": "{name} must be a valid prime number"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid prime number"
+    }
+  },
+  "charset": {
+    "default": {
+      "standard": "{name} must be in the {charset} charset"
+    },
+    "negative": {
+      "standard": "{name} must not be in the {charset} charset"
+    }
+  },
+  "numericVal": {
+    "default": {
+      "standard": "{name} must be numeric"
+    },
+    "negative": {
+      "standard": "{name} must not be numeric"
+    }
+  },
+  "cpf": {
+    "default": {
+      "standard": "{name} must be a valid CPF number"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid CPF number"
+    }
+  },
+  "exists": {
+    "default": {
+      "standard": "{name} must exists"
+    },
+    "negative": {
+      "standard": "{name} must not exists"
+    }
+  },
+  "floatType": {
+    "default": {
+      "standard": "{name} must be of type float"
+    },
+    "negative": {
+      "standard": "{name} must not be of type float"
+    }
+  },
+  "startsWith": {
+    "default": {
+      "standard": "{name} must start with {start_value}"
+    },
+    "negative": {
+      "standard": "{name} must not start with {start_value}"
+    }
+  },
+  "uppercase": {
+    "default": {
+      "standard": "{name} must be uppercase"
+    },
+    "negative": {
+      "standard": "{name} must not be uppercase"
+    }
+  },
+  "greaterThan": {
+    "default": {
+      "standard": "{name} must be greater than {_compare_to}"
+    },
+    "negative": {
+      "standard": "{name} must not be greater than {_compare_to}"
+    }
+  },
+  "email": {
+    "default": {
+      "standard": "{name} must be valid email"
+    },
+    "negative": {
+      "standard": "{name} must not be an email"
+    }
+  },
+  "odd": {
+    "default": {
+      "standard": "{name} must be an odd number"
+    },
+    "negative": {
+      "standard": "{name} must not be an odd number"
+    }
+  },
+  "executable": {
+    "default": {
+      "standard": "{name} must be an executable file"
+    },
+    "negative": {
+      "standard": "{name} must not be an executable file"
+    }
+  },
+  "imei": {
+    "default": {
+      "standard": "{name} must be a valid IMEI"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid IMEI"
+    }
+  },
+  "extension": {
+    "default": {
+      "standard": "{name} must have {extension} extension"
+    },
+    "negative": {
+      "standard": "{name} must not have {extension} extension"
+    }
+  },
+  "phone": {
+    "default": {
+      "standard": "{name} must be a valid telephone number"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid telephone number"
+    }
+  },
+  "nullable": {
+    "default": {
+      "standard": "{name} must be nullable"
+    },
+    "negative": {
+      "standard": "{name} must not be null"
+    }
+  },
+  "mimetype": {
+    "default": {
+      "standard": "{name} must have {mimetype} MIME type"
+    },
+    "negative": {
+      "standard": "{name} must not have {mimetype} MIME type"
+    }
+  },
+  "alpha": {
+    "default": {
+      "standard": "{name} must contain only letters (a-z)",
+      "extra": "{name} must contain only letters (a-z) and {additional_chars}"
+    },
+    "negative": {
+      "standard": "{name} must not contain letters (a-z)",
+      "extra": "{name} must not contain letters (a-z) or {additional_chars}"
+    }
+  },
+  "space": {
+    "default": {
+      "standard": "{name} must contain only space characters",
+      "extra": "{name} must contain only space characters and {additional_chars}"
+    },
+    "negative": {
+      "standard": "{name} must not contain space characters",
+      "extra": "{name} must not contain space characters or {additional_chars}"
+    }
+  },
+  "image": {
+    "default": {
+      "standard": "{name} must be a valid image"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid image"
+    }
+  },
+  "digit": {
+    "default": {
+      "standard": "{name} must contain only digits (0-9)",
+      "extra": "{name} must contain only digits (0-9) and {additional_chars}"
+    },
+    "negative": {
+      "standard": "{name} must not contain digits (0-9)",
+      "extra": "{name} must not contain digits (0-9) and {additional_chars}"
+    }
+  },
+  "currencyCode": {
+    "default": {
+      "standard": "{name} must be a valid currency"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid currency"
+    }
+  },
+  "optional": {
+    "default": {
+      "standard": "{name} must be optional"
+    },
+    "negative": {
+      "standard": "{name} must not be optional"
+    }
+  },
+  "contains": {
+    "default": {
+      "standard": "{name} must contain the value {contains_value}"
+    },
+    "negative": {
+      "standard": "{name} must not contain the value {contains_value}"
+    }
+  },
+  "polishIdCard": {
+    "default": {
+      "standard": "{name} must be a valid Polish Identity Card number"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid Polish Identity Card number"
+    }
+  },
+  "fibonacci": {
+    "default": {
+      "standard": "{name} must be a valid Fibonacci number"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid Fibonacci number"
+    }
+  },
+  "size": {
+    "default": {
+      "both": "{name} must be between {min_size} and {max_size}",
+      "lower": "{name} must be greater than {min_size}",
+      "greater": "{name} must be lower than {max_size}"
+    },
+    "negative": {
+      "both": "{name} must not be between {min_size} and {max_size}",
+      "lower": "{name} must not be greater than {min_size}",
+      "greater": "{name} must not be lower than {max_size}"
+    }
+  },
+  "notBlank": {
+    "default": {
+      "standard": "{name} must not be blank"
+    },
+    "negative": {
+      "standard": "{name} must be blank"
+    }
+  },
+  "creditCard": {
+    "default": {
+      "standard": "{name} must be a valid Credit Card number",
+      "branded": "{name} must be a valid {brand} Credit Card number"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid Credit Card number",
+      "branded": "{name} must not be a valid {brand} Credit Card number"
+    }
+  },
+  "not": {
+    "default": {
+      "none": "All of the required rules must pass for {name}",
+      "some": "These rules must pass for {name}"
+    },
+    "negative": {
+      "none": "None of there rules must pass for {name}",
+      "some": "These rules must not pass for {name}"
+    }
+  },
+  "oneOf": {
+    "default": {
+      "standard": "Only one of these rules must pass for {name}"
+    },
+    "negative": {
+      "standard": "Only one of these rules must not pass for {name}"
+    }
+  },
+  "key": {
+    "default": {
+      "not_present": "{name} must be present",
+      "invalid": "{name} must be valid"
+    },
+    "negative": {
+      "not_present": "{name} must not be present",
+      "invalid": "{name} must not be valid"
+    }
+  },
+  "attribute": {
+    "default": {
+      "not_present": "Attribute {name} must be present",
+      "invalid": "Attribute {name} must be valid"
+    },
+    "negative": {
+      "not_present": "Attribute {name} must not be present",
+      "invalid": "Attribute {name} must not validate"
+    }
+  },
+  "noWhitespace": {
+    "default": {
+      "standard": "{name} must not contain whitespace"
+    },
+    "negative": {
+      "standard": "{name} must contain whitespace"
+    }
+  },
+  "cnh": {
+    "default": {
+      "standard": "{name} must be a valid CNH number"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid CNH number"
+    }
+  },
+  "perfectSquare": {
+    "default": {
+      "standard": "{name} must be a valid perfect square"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid perfect square"
+    }
+  },
+  "finite": {
+    "default": {
+      "standard": "{name} must be a finite number"
+    },
+    "negative": {
+      "standard": "{name} must not be a finite number"
+    }
+  },
+  "length": {
+    "default": {
+      "both": "{name} must have a length between {min_value} and {max_value}",
+      "lower": "{name} must have a length greater than {min_value}",
+      "lower_inclusive": "{name} must have a length greater than or equal to {min_value}",
+      "greater": "{name} must have a length lower than {max_value}",
+      "greater_inclusive": "{name} must have a length lower than or equal to {max_value}",
+      "exact": "{name} must have a length of {max_value}"
+    },
+    "negative": {
+      "both": "{name} must not have a length between {min_value} and {max_value}",
+      "lower": "{name} must not have a length greater than {min_value}",
+      "lower_inclusive": "{name} must not have a length greater than or equal to {min_value}",
+      "greater": "{name} must not have a length lower than {max_value}",
+      "greater_inclusive": "{name} must not have a length lower than or equal to {max_value}",
+      "exact": "{name} must not have a length of {max_value}"
+    }
+  },
+  "tld": {
+    "default": {
+      "standard": "{name} must be a valid top-level domain name"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid top-level domain name"
+    }
+  },
+  "domain": {
+    "default": {
+      "standard": "{name} must be a valid domain"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid domain"
+    }
+  },
+  "keyValue": {
+    "default": {
+      "standard": "Key {name} must be present",
+      "component": "{base_key} must be valid to validate {compared_key}"
+    },
+    "negative": {
+      "standard": "Key {name} must not be present",
+      "component": "{base_key} must not be valid to validate {compared_key}"
+    }
+  },
+  "falseVal": {
+    "default": {
+      "standard": "{name} is not considered as \"False\""
+    },
+    "negative": {
+      "standard": "{name} is considered as \"False\""
+    }
+  },
+  "filteredValidation": {
+    "default": {
+      "standard": "{name} must be valid"
+    },
+    "negative": {
+      "standard": "{name} must not be valid"
+    }
+  },
+  "boolVal": {
+    "default": {
+      "standard": "{name} must be a boolean value"
+    },
+    "negative": {
+      "standard": "{name} must not be a boolean value"
+    }
+  },
+  "anyOf": {
+    "default": {
+      "standard": "At least one of these rules must pass for {name}"
+    },
+    "negative": {
+      "standard": "At least one of these rules must not pass for {name}"
+    }
+  },
+  "between": {
+    "default": {
+      "standard": "{name} must be between {min_value} and {max_value}"
+    },
+    "negative": {
+      "standard": "{name} must not be between {min_value} and {max_value}"
+    }
+  },
+  "multiple": {
+    "default": {
+      "standard": "{name} must be multiple of {multiple_of}"
+    },
+    "negative": {
+      "standard": "{name} must not be multiple of {multiple_of}"
+    }
+  },
+  "dateTime": {
+    "default": {
+      "standard": "{name} must be a valid date/time",
+      "format": "{name} must be a valid date/time in the format {sample}"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid date/time",
+      "format": "{name} must not be a valid date/time in the format {sample}"
+    }
+  },
+  "intType": {
+    "default": {
+      "standard": "{name} must be of type integer"
+    },
+    "negative": {
+      "standard": "{name} must not be of type integer"
+    }
+  },
+  "min": {
+    "default": {
+      "standard": "{name} must be greater than or equal to {_compare_to}"
+    },
+    "negative": {
+      "standard": "{name} must not be greater than or equal to {_compare_to}"
+    }
+  },
+  "writable": {
+    "default": {
+      "standard": "{name} must be writable"
+    },
+    "negative": {
+      "standard": "{name} must not be writable"
+    }
+  },
+  "leapYear": {
+    "default": {
+      "standard": "{name} must be a leap year"
+    },
+    "negative": {
+      "standard": "{name} must not be a leap year"
+    }
+  },
+  "leapDate": {
+    "default": {
+      "standard": "{name} must be leap date"
+    },
+    "negative": {
+      "standard": "{name} must not be leap date"
+    }
+  },
+  "negative": {
+    "default": {
+      "standard": "{name} must be negative"
+    },
+    "negative": {
+      "standard": "{name} must not be negative"
+    }
+  },
+  "bytearrayType": {
+    "default": {
+      "standard": "{name} must be bytearray type"
+    },
+    "negative": {
+      "standard": "{name} must not be bytearray type"
+    }
+  },
+  "even": {
+    "default": {
+      "standard": "{name} must be an even number"
+    },
+    "negative": {
+      "standard": "{name} must not be an even number"
+    }
+  },
+  "validation": {
+    "default": {
+      "standard": "{name} must be valid"
+    },
+    "negative": {
+      "standard": "{name} must not be valid"
+    }
+  },
+  "bytesType": {
+    "default": {
+      "standard": "{name} must be bytes type"
+    },
+    "negative": {
+      "standard": "{name} must not be bytes type"
+    }
+  },
+  "endsWith": {
+    "default": {
+      "standard": "{name} must end with {end_value}"
+    },
+    "negative": {
+      "standard": "{name} must not end with {end_value}"
+    }
+  },
+  "equivalent": {
+    "default": {
+      "standard": "{name} must be equivalent to {compare_to}"
+    },
+    "negative": {
+      "standard": "{name} must not be equivalent to {compare_to}"
+    }
+  },
+  "positive": {
+    "default": {
+      "standard": "{name} must be positive"
+    },
+    "negative": {
+      "standard": "{name} must not be positive"
+    }
+  },
+  "videoUrl": {
+    "default": {
+      "standard": "{name} must be a valid video URL",
+      "service": "{name} must be a valid {service} video URL"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid video URL",
+      "service": "{name} must not be a valid {service} video URL"
+    }
+  },
+  "yes": {
+    "default": {
+      "standard": "{name} is not considered as \"Yes\""
+    },
+    "negative": {
+      "standard": "{name} is considered as \"Yes\""
+    }
+  },
+  "number": {
+    "default": {
+      "standard": "{name} must be number"
+    },
+    "negative": {
+      "standard": "{name} must not be number"
+    }
+  },
+  "bsn": {
+    "default": {
+      "standard": "{name} must be a BSN"
+    },
+    "negative": {
+      "standard": "{name} must not be a BSN"
+    }
+  },
+  "iban": {
+    "default": {
+      "standard": "{name} must be a valid IBAN"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid IBAN"
+    }
+  },
+  "allOf": {
+    "default": {
+      "none": "All of the required rules must pass for {name}",
+      "some": "These rules must pass for {name}"
+    },
+    "negative": {
+      "none": "None of there rules must pass for {name}",
+      "some": "These rules must not pass for {name}"
+    }
+  },
+  "stringVal": {
+    "default": {
+      "standard": "{name} must be a string"
+    },
+    "negative": {
+      "standard": "{name} must not be string"
+    }
+  },
+  "luhn": {
+    "default": {
+      "standard": "{name} must be a valid Luhn number"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid Luhn number"
+    }
+  },
+  "punct": {
+    "default": {
+      "standard": "{name} must contain only punctuation characters",
+      "extra": "{name} must contain only punctuation characters and {additional_chars}"
+    },
+    "negative": {
+      "standard": "{name} must not contain punctuation characters",
+      "extra": "{name} must not contain punctuation characters or {additional_chars}"
+    }
+  },
+  "ip": {
+    "default": {
+      "standard": "{name} must be an IP address",
+      "must_be_private": "{name} must be a private IP address",
+      "network_range": "{name} must be an IP address in the {ip_range} range"
+    },
+    "negative": {
+      "standard": "{name} must not be an IP address",
+      "must_be_private": "{name} must not be a private IP address",
+      "network_range": "{name} must not be an IP address in the {ip_range} range"
+    }
+  },
+  "trueVal": {
+    "default": {
+      "standard": "{name} is not considered as \"True\""
+    },
+    "negative": {
+      "standard": "{name} is considered as \"True\""
+    }
+  },
+  "no": {
+    "default": {
+      "standard": "{name} is not considered as \"No\""
+    },
+    "negative": {
+      "standard": "{name} is considered as \"No\""
+    }
+  },
+  "pis": {
+    "default": {
+      "standard": "{name} must be a valid PIS number"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid PIS number"
+    }
+  },
+  "equals": {
+    "default": {
+      "standard": "{name} must be equal to {compare_to}"
+    },
+    "negative": {
+      "standard": "{name} must not be equal to {compare_to}"
+    }
+  },
+  "iterable": {
+    "default": {
+      "standard": "{name} must be iterable"
+    },
+    "negative": {
+      "standard": "{name} must not be iterable"
+    }
+  },
+  "infinite": {
+    "default": {
+      "standard": "{name} must be an infinite number"
+    },
+    "negative": {
+      "standard": "{name} must not be an infinite number"
+    }
+  },
+  "macAddress": {
+    "default": {
+      "standard": "{name} must be a valid MAC address"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid MAC address"
+    }
+  },
+  "notOptional": {
+    "default": {
+      "standard": "{name} must not be optional"
+    },
+    "negative": {
+      "standard": "{name} must be optional"
+    }
+  },
+  "consonant": {
+    "default": {
+      "standard": "{name} must contain only consonants",
+      "extra": "{name} must contain only consonants and {additional_chars}"
+    },
+    "negative": {
+      "standard": "{name} must not contain consonants",
+      "extra": "{name} must not contain consonants or {additional_chars}"
+    }
+  },
+  "file": {
+    "default": {
+      "standard": "{name} must be a file"
+    },
+    "negative": {
+      "standard": "{name} must not be a file"
+    }
+  },
+  "keySet": {
+    "default": {
+      "none": "All of the required rules must pass for {name}",
+      "some": "These rules must pass for {name}",
+      "structure": "Must have keys {keys}"
+    },
+    "negative": {
+      "none": "None of these rules must pass for {name}",
+      "some": "These rules must not pass for {name}",
+      "structure": "Must not have keys {keys}"
+    }
+  },
+  "version": {
+    "default": {
+      "standard": "{name} must be a version"
+    },
+    "negative": {
+      "standard": "{name} must not be a version"
+    }
+  },
+  "base64": {
+    "default": {
+      "standard": "{name} must be Base64-encoded"
+    },
+    "negative": {
+      "standard": "{name} must not be Base64-encoded"
+    }
+  },
+  "url": {
+    "default": {
+      "standard": "{name} must be a URL",
+      "public": "{name} must be a public URL"
+    },
+    "negative": {
+      "standard": "{name} must not be a URL",
+      "public": "{name} must not be a public URL"
+    }
+  },
+  "printable": {
+    "default": {
+      "standard": "{name} must contain only printable characters",
+      "extra": "{name} must contain only printable characters and {additional_chars}"
+    },
+    "negative": {
+      "standard": "{name} must not contain printable characters",
+      "extra": "{name} must not contain printable characters or {additional_chars}"
+    }
+  },
+  "regex": {
+    "default": {
+      "standard": "{name} must validate against {regex}"
+    },
+    "negative": {
+      "standard": "{name} must not validate against {regex}"
+    }
+  },
+  "callback": {
+    "default": {
+      "standard": "{name} must be valid"
+    },
+    "negative": {
+      "standard": "{name} must not be valid"
+    }
+  },
+  "alwaysValid": {
+    "default": {
+      "standard": "{name} is always valid"
+    },
+    "negative": {
+      "standard": "{name} is always invalid"
+    }
+  },
+  "countryCode": {
+    "default": {
+      "standard": "{name} must be a valid country"
+    },
+    "negative": {
+      "standard": "{name} must not be a valid country"
+    }
+  },
+  "noneType": {
+    "default": {
+      "standard": "{name} must be None type"
+    },
+    "negative": {
+      "standard": "{name} must not be None type"
+    }
+  },
+  "control": {
+    "default": {
+      "standard": "{name} must contain only control characters",
+      "extra": "{name} must contain only control characters and {additional_chars}"
+    },
+    "negative": {
+      "standard": "{name} must not contain control characters",
+      "extra": "{name} must not contain control characters or {additional_chars}"
+    }
+  },
+  "when": {
+    "default": {
+      "standard": "{name} must be valid"
+    },
+    "negative": {
+      "standard": "{name} must not be valid"
+    }
+  },
+  "lessThan": {
+    "default": {
+      "standard": "{name} must be less than {_compare_to}"
+    },
+    "negative": {
+      "standard": "{name} must not be less than {_compare_to}"
+    }
+  },
+  "notEmpty": {
+    "default": {
+      "standard": "{name} must not be empty"
+    },
+    "negative": {
+      "standard": "{name} must be empty"
+    }
+  }
+}

@@ -1,4 +1,4 @@
-from typing import Dict, Any
+from typing import Dict, Any, Optional, List
 
 
 class ValidationException(Exception):
@@ -11,7 +11,6 @@ class ValidationException(Exception):
     _id: str = ''
     _mode = 'default'
     _params: Dict[str, Any] = {}
-    _formatter = None
     _template = 'standard'
     _message = None
 
@@ -24,13 +23,15 @@ class ValidationException(Exception):
         },
     }
 
-    def __init__(self, input, _id, params, formatter):
+    _translated_templates: Optional[Dict[str, Any]] = None
+
+    def __init__(self, input, _id, params, translation: Optional[Dict[str, Any]] = None):
         self._mode = self.MODE_DEFAULT
-        self._exceptions = list()
+        self._exceptions: List[Any] = list()
         self._input = input
         self._id = _id
         self._params = params
-        self._formatter = formatter
+        self._translated_templates = translation
         self._template = self.choose_template()
 
         if not self._params.get('name', False):
@@ -45,11 +46,13 @@ class ValidationException(Exception):
         return self
 
     def _create_message(self) -> str:
-        #
-        # here should be formatter
-        #
-        if not self._default_templates[self._mode].get(self._template, False):
+        if not self._default_templates[self._mode].get(self._template):
             return self._template
+
+        if self._translated_templates and self._translated_templates.get(self._mode) and \
+                self._translated_templates[self._mode].get(self._template):
+            return str(self._translated_templates[self._mode][self._template])
+
         return self._default_templates[self._mode][self._template]
 
     def get_message(self) -> str:
