@@ -40,7 +40,7 @@ Inside _modes_ you can find message **templates**. One or several message templa
 !!! tip
     There is no need to translate all messages from 
     [provided dictionary](https://github.com/gurkin33/respect_validation/blob/1.2.0/bin/default_messages.json) 
-    you can add there only rules which you want to use. If library cannot find related messages in 
+    you can add rules which you want to use. If library cannot find related messages in 
     provided dictionary, then it will use default ones.
 
 ### Example
