@@ -40,7 +40,7 @@ user.name = 'Alexandre'
 user.birthdate = datetime('1987-07-01', '%Y-%m-%d')
 ```
 
-Is possible to validate its attributes in a single chain:
+It is possible to validate its attributes in a single chain:
 
 ```python
 #  "name" in between 1 to 32 symbols
@@ -55,7 +55,7 @@ Validating dictionary is also possible using `v.key()`
 
 Note that we used `v.stringType()` and `v.date()` in the beginning of the validator.
 Although is not mandatory, it is a good practice to use the type of the
-validated object as the first node in the chain.
+validated object as the first check in the chain.
 
 ## Validating dictionaries
 
@@ -96,13 +96,13 @@ v.optional(v.alpha()).validate('')  # true
 v.optional(v.alpha()).validate(None)  # true
 ```
 
-By _optional_ we consider `None` or an empty string (`''`).
+By _optional_ we consider `None` or an empty string (`''`) as valid and don't pull input to rule inside.
 
 See more on [Optional](rules/Optional.md).
 
 ## Negating rules
 
-You can use the `v.Not()` (IMPORTANT to type with upper N) to negate any rule:
+You can use `v.Not()` (IMPORTANT to type with upper N) to negate any rule:
 
 ```python
 v.Not(v.intVal()).validate(10)  # false, input must not be integer
@@ -171,7 +171,7 @@ except NestedValidationException as exception:
     print(exception.get_messages())
 ```
 
-The `get_messages()` returns an array in which the keys are the name of the
+The `get_messages()` returns an array in which the keys are the name (better say ID) of the
 validators, or its reference in case you are using [Key](rules/Key.md) or
 [Attribute](rules/Attribute.md) rule:
 
@@ -194,14 +194,14 @@ try:
     username_validator.claim('really messed up screen#name')
 except NestedValidationException as exception:
     print(exception.get_messages({
-            'alnum': '{{name}} must contain only letters and digits',
-            'noWhitespace': '{{name}} cannot contain spaces',
-            'length': '{{name}} must not have more than 15 chars',
+            'alnum': '{name} must contain only letters and digits',
+            'noWhitespace': '{name} cannot contain spaces',
+            'length': '{name} must not have more than 15 chars',
         })
     )
 ```
 
-For all messages, the `{{name}}` variable is available for templates. If you do
+For all messages, the `{name}` variable is available for templates. If you do
 not define a name it uses the input to replace this placeholder.
 
 The result of the code above will be:
@@ -217,9 +217,12 @@ The result of the code above will be:
 Note that `get_message()` will only return a message when the specific validation
 in the chain fails.
 
+!!! hint
+    Also, you can use [Translation](./translation.md) to change any output messages.
+
 ## Validator name
 
-On `v.attribute()` and `v.key()`, `{{name}}` is the attribute/key name. For others,
+On `v.attribute()` and `v.key()`, `{name}` is the attribute/key name. For others,
 is the same as the input. You can customize a validator name using:
 
 ```python
@@ -228,8 +231,8 @@ v.dateTime('%Y-%m-%d').between('1980-02-02', '2022-04-29').setName('Member Since
 
 ## Validation methods
 
-We've seen `validate()` that returns true or false and `claim()` that throws a complete
-validation report. There is also a `check()` method that returns an Exception
+We've seen `validate()` that returns True or False and `claim()` that raises a complete
+validation report. There is also `check()` method that returns an Exception
 only with the first error found:
 
 ```python

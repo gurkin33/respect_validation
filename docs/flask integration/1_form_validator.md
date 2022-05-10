@@ -14,16 +14,16 @@ check_unknown: bool = True, templates: Dict[str, str] = {})` - the main action m
 - `get_messages()` - returns dictionary with validation errors related to keys in provided rules, if rule doesn't have 
 errors, then value of key will be `None`.
 
-## FormValidator validate arguments
+## FormValidator `validate` arguments
 
 Method validate has several arguments:
 
 - `request: Dict[str, Any]` - data received from form. Must be a dictionary.
-- `rules: Dict[str, Any]` - it is a dictionary where keys must much with keys of *request*, values of this 
+- `rules: Dict[str, Any]` - it is a dictionary where keys must match with keys of *request*, values of this 
   dictionary are validation rules.
 - `check_missed: bool = False` - check if *request* doesn't have one or more keys which are available in 
   *rules*. If `False` all missed keys have `None` as a value, else keys treated as failed and have this 
-  error message - Item *key_name* must be present.
+  error message - "Item *key_name* must be present".
 - `check_unknown: bool = True` - check if some addition keys appeared in *request* which are not present 
   in *rules*. If `True` addition key appears in messages - `_unknown_`.
 - `templates: Dict[str, str] = {}` - dictionary of templates which must be applied to rule exceptions, 

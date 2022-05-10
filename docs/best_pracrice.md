@@ -15,11 +15,8 @@ integer, just add addition validation:
 ```python
 v.digit().between(1, 100).validate('10')  # true
 ```
-Many of rules can do type switch for you, please visit [comparable values](./comparable-values.md) 
+Many of rules can switch type of variable for you, please visit [comparable values](./comparable-values.md) 
 for more information.
-<table><tr><td>
-<center>
-<b style="color:#8bc34b; font-size:24px;">Best practice is to set validation as close as you can to your 
-expectations for final data</b>
-</center>
-</td></tr></table>
+
+!!! success
+    **Best practice is to set validation as close as you can to your expectations for final data**

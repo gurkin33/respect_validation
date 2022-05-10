@@ -1,11 +1,12 @@
 # Custom rules
 
-You can also create and use your own rules. To do this, you will need to create
-a rule and an exception to go with the rule.
+You can also create and use your own rules and exceptions.
 
 To create a rule, you need to create a class that inherits the AbstractRule class
-and add package with rule module to `Factory`. When the rule is called the logic inside the
-validate method will be executed. Here's how the class should look:
+and add package (with the rule module) to `Factory`. When the rule is called the logic inside the
+validate method will be executed. I will be more clear in example.
+
+Start with creation of a rule. Below you can see a class of a new custom rule:
 
 ```python
 from respect_validation.Rules.AbstractRule import AbstractRule
@@ -17,10 +18,11 @@ class CustomRule(AbstractRule):
 
         return input_val == 'Hello custom rule!'
 ```
-IMPORTANT. <ins><b>Names of module and class of rule must be the same</b></ins> 
-(for example, the name of module CustomRule.py, then the name of class is CustomRule). 
-Name are case-sensitive and <ins><b>must start with upper letter</b></ins> 
-(<b>C</b>ustomRule - ✅ , <b>c</b>ustomRule - ❌ ).
+!!! attention
+    <ins><b>Names of module (file name) and class of rule must be the same</b></ins> 
+    (for example, the name of module CustomRule.py, then the name of class is CustomRule). 
+    Name are case-sensitive and <ins><b>must start with upper letter</b></ins> 
+    (<b>C</b>ustomRule - ✅ , <b>c</b>ustomRule - ❌ ).
 
 Each rule must have an Exception to go with it. Exceptions should be named
 with the name of the rule followed by the word Exception. The process of creating
@@ -43,6 +45,10 @@ class CustomRuleException(ValidationException):
         }
     }
 ```
+
+!!! info
+    There are two modes in exception messages **default** and **negative**. Default mode is active while 
+    usual use. Negative mode is active when a rule inside [`Not`](rules/Not.md) rule.
 
 So in the end, the folder structure for your Rules and Exceptions should look
 something like the structure below. If you understand how it works, then you can use your own structure 😎.
@@ -104,7 +110,8 @@ class CustomRule(AbstractRule):
         else:
             False
 ```
-<b>IMPORTANT</b>. Don't forget to add `super().__init__()`, else you may have problems.
+!!! attention
+    Don't forget to add `super().__init__()`, else you may have problems.
 
 Now you can write rule in this way:
 ```python
