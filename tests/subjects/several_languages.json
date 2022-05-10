@@ -1,0 +1,80 @@
+{
+  "en": {
+      "numericVal": {
+      "default": {
+        "standard": "{name} must be numeric"
+      },
+      "negative": {
+        "standard": "{name} must not be numeric"
+      }
+    },
+      "positive": {
+      "default": {
+        "standard": "{name} must be positive"
+      },
+      "negative": {
+        "standard": "{name} must not be positive"
+      }
+    },
+      "between": {
+      "default": {
+        "standard": "{name} must be between {min_value} and {max_value}"
+      },
+      "negative": {
+        "standard": "{name} must not be between {min_value} and {max_value}"
+      }
+    }
+  },
+    "de": {
+      "numericVal": {
+      "default": {
+        "standard": "{name} muss numerisch sein"
+      },
+      "negative": {
+        "standard": "{name} darf nicht numerisch sein"
+      }
+    },
+      "positive": {
+      "default": {
+        "standard": "{name} muss positiv sein"
+      },
+      "negative": {
+        "standard": "{name} darf nicht positiv sein"
+      }
+    },
+      "between": {
+      "default": {
+        "standard": "{name} muss zwischen {min_value} und {max_value} liegen"
+      },
+      "negative": {
+        "standard": "{name} darf nicht zwischen {min_value} und {max_value} liegen"
+      }
+    }
+  },
+  "custom": {
+      "numericVal": {
+      "default": {
+        "standard": "Is this {name} numeric? I don't think so..."
+      },
+      "negative": {
+        "standard": "{name} must NOT be numeric"
+      }
+    },
+      "positive": {
+      "default": {
+        "standard": "Is this {name} positive? I don't think so..."
+      },
+      "negative": {
+        "standard": "{name} must NOT be positive"
+      }
+    },
+      "between": {
+      "default": {
+        "standard": "Is this {name} is between {min_value} and {max_value}? I don't think so..."
+      },
+      "negative": {
+        "standard": "Is this {name} is between {min_value} and {max_value}? I don't think so..."
+      }
+    }
+  }
+}

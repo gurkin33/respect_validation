@@ -1,0 +1,26 @@
+{
+  "numericVal": {
+    "default": {
+      "standard": "{name} muss numerisch sein"
+    },
+    "negative": {
+      "standard": "{name} darf nicht numerisch sein"
+    }
+  },
+    "positive": {
+    "default": {
+      "standard": "{name} muss positiv sein"
+    },
+    "negative": {
+      "standard": "{name} darf nicht positiv sein"
+    }
+  },
+    "between": {
+    "default": {
+      "standard": "{name} muss zwischen {min_value} und {max_value} liegen"
+    },
+    "negative": {
+      "standard": "{name} darf nicht zwischen {min_value} und {max_value} liegen"
+    }
+  }
+}
