@@ -31,6 +31,7 @@ General description:
 - [More than 130](https://gurkin33.github.io/respect_validation/list-of-rules/) (fully tested) validation rules.
 - [Integration with Flask](https://gurkin33.github.io/respect_validation/flask%20integration/2_simple_flask/) example.
 - Please see [demo of integration with flask](https://gurkin33.github.io/respect_validation/demo.html).
+- [Easy translation](https://gurkin33.github.io/respect_validation/translation/) with multi-language support.
 
 
 ### Why is it great alternative to others?

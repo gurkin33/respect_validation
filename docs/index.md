@@ -23,6 +23,7 @@ PHP and Python have many differences that why this library has some small change
 - [More than 130](list-of-rules.md) (fully tested) validation rules.
 - [Integration with Flask](./flask%20integration/2_simple_flask.md) example.
 - Please see [demo of integration with flask](/respect_validation/demo.html).
+- [Easy translation](/respect_validation/translation/) with multi-language support.
 
 ### Why is it great alternative to others?
 

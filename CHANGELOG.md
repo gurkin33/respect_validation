@@ -1,3 +1,7 @@
+## Version 1.2.0 - 2022-05-10
+
+- Translation. Multi-language support
+
 ## Version 1.1.0 - 2022-05-05
 
 - Added FormValidator
