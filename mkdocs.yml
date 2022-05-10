@@ -6,6 +6,8 @@ extra_css: [css/extra.css]
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
+  - admonition
+  - pymdownx.details
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
