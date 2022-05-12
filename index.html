@@ -399,6 +399,21 @@
   
   
     <li class="md-nav__item">
+      <a href="rule-cases/" class="md-nav__link">
+        Rule "cases" (spelling)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="translation/" class="md-nav__link">
         Translation
       </a>
@@ -417,18 +432,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_9">
+        <label class="md-nav__link" for="__nav_10">
           Flask integration
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Flask integration" data-md-level="1">
-        <label class="md-nav__title" for="__nav_9">
+        <label class="md-nav__title" for="__nav_10">
           <span class="md-nav__icon md-icon"></span>
           Flask integration
         </label>
@@ -479,18 +494,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_10">
+        <label class="md-nav__link" for="__nav_11">
           Rules
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Rules" data-md-level="1">
-        <label class="md-nav__title" for="__nav_10">
+        <label class="md-nav__title" for="__nav_11">
           <span class="md-nav__icon md-icon"></span>
           Rules
         </label>
@@ -2498,6 +2513,7 @@
 <p>PHP and Python have many differences that why this library has some small changes, but an awesome architecture was migrated without changes.</p>
 <ul>
 <li>Complex rules made simple: <code>v.numericVal().positive().between(1, 255).validate(some_variable)</code>.</li>
+<li>PEP8 <code>snake_case</code> supported: <code>v.one_of(v.string_val().string_type(), v.int_val().int_type()).validate("gurkin33")</code></li>
 <li><a href="feature-guide/#getting-all-messages-as-a-dict">Advanced reporting</a> to show validation errors.</li>
 <li><a href="list-of-rules/">More than 130</a> (fully tested) validation rules.</li>
 <li><a href="flask%20integration/2_simple_flask/">Integration with Flask</a> example.</li>
