@@ -1,3 +1,7 @@
+## Version 1.3.0 - 2022-05-12
+
+- `snake_case` support for rules (based on PEP8)
+
 ## Version 1.2.0 - 2022-05-10
 
 - Translation. Multi-language support

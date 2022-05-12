@@ -8,6 +8,8 @@ class Factory(object):
 
     default_instance = None
 
+    _PEP8: bool = True
+
     _translation: ClassVar[Optional[Dict[str, Any]]] = None
     _default_language: ClassVar[Optional[str]] = None
 
@@ -23,6 +25,8 @@ class Factory(object):
 
     def rule(self, name: str, *args, **kwargs):
         name = name[0].upper() + name[1:]
+        if self._PEP8:
+            name = self._snake_2_camel_case(name)
         for package in self.rules_packages:
             try:
                 fullname = '{}.{}'.format(package, name)
@@ -117,3 +121,10 @@ class Factory(object):
     def default_language(cls, language: str):
         cls._default_language = language
         return cls
+
+    @staticmethod
+    def _snake_2_camel_case(snake: str):
+        camel = ''
+        for s in snake.split('_'):
+            camel += s[0].upper() + s[1:]
+        return camel

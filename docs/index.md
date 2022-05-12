@@ -19,6 +19,7 @@ pip install respect-validation
 PHP and Python have many differences that why this library has some small changes, but an awesome architecture was migrated without changes.
 
 - Complex rules made simple: `v.numericVal().positive().between(1, 255).validate(some_variable)`.
+- PEP8 `snake_case` supported: `v.one_of(v.string_val().string_type(), v.int_val().int_type()).validate("gurkin33")`
 - [Advanced reporting](feature-guide.md#getting-all-messages-as-a-dict) to show validation errors.
 - [More than 130](list-of-rules.md) (fully tested) validation rules.
 - [Integration with Flask](./flask%20integration/2_simple_flask.md) example.
